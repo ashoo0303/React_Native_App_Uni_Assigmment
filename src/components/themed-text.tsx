@@ -5,7 +5,7 @@ import { useTheme } from '@/hooks/use-theme';
 
 export type ThemedTextProps = TextProps & {
   type?: 'default' | 'title' | 'subtitle' | 'small' | 'smallBold' | 'link';
-  /** Which theme color to use for the text. Defaults to `text`. */
+
   themeColor?: ThemeColor;
 };
 

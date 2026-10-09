@@ -4,7 +4,7 @@ import type { ThemeColor } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export type ThemedViewProps = ViewProps & {
-  /** Which theme color to use for the background. Defaults to `background`. */
+ 
   type?: ThemeColor;
 };
 
