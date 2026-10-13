@@ -1,14 +1,21 @@
+// ============================================
+// useTheme = a small helper function
+// It checks if the phone is in dark or light mode
+// and gives us the matching colors
+// ============================================
+
 import { useColorScheme } from 'react-native';
+import { lightColors, darkColors } from '@/constants/colors';
 
-import { Colors } from '@/constants/theme';
-
-// This hook returns the correct colors for light or dark mode
 export function useTheme() {
+  // useColorScheme tells us: "light" or "dark"
   const colorScheme = useColorScheme();
 
+  // If phone is in dark mode, return dark colors
   if (colorScheme === 'dark') {
-    return Colors.dark;
+    return darkColors;
   }
 
-  return Colors.light;
+  // Otherwise return light colors
+  return lightColors;
 }

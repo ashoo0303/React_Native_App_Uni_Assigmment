@@ -1,58 +1,100 @@
-import { ScrollView, StyleSheet } from 'react-native';
+// ============================================
+// PROFILE SCREEN
+// This screen shows the student profile
+// ============================================
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { MaxContentWidth, Radius, Spacing } from '@/constants/theme';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function ProfileScreen() {
-  const theme = useTheme();
+  // Get the correct colors (light or dark)
+  const colors = useTheme();
 
   return (
-    <ThemedView style={styles.screen}>
+    // Outer box for the whole screen
+    <View style={[styles.screen, { backgroundColor: colors.background }]}>
+
+      {/* ScrollView lets the user scroll if content is long */}
       <ScrollView contentContainerStyle={styles.content}>
-        {/* Profile header section */}
-        <ThemedView style={styles.header}>
-          {/* Circle avatar with first letter */}
-          <ThemedView type="tint" style={styles.avatar}>
-            <ThemedText type="title" style={{ color: theme.onTint }}>
+
+        {/* Header section in the middle */}
+        <View style={styles.header}>
+
+          {/* Circle avatar with the letter A */}
+          <View style={[styles.avatar, { backgroundColor: colors.tint }]}>
+            <Text style={[styles.avatarText, { color: colors.onTint }]}>
               A
-            </ThemedText>
-          </ThemedView>
+            </Text>
+          </View>
 
-          <ThemedText type="subtitle">ayesha babar</ThemedText>
+          {/* Name */}
+          <Text style={[styles.name, { color: colors.text }]}>
+            ayesha babar
+          </Text>
 
-          <ThemedText type="small" themeColor="textSecondary">
+          {/* Job / role under the name */}
+          <Text style={[styles.role, { color: colors.textSecondary }]}>
             Student developer
-          </ThemedText>
-        </ThemedView>
+          </Text>
+
+        </View>
       </ScrollView>
-    </ThemedView>
+    </View>
   );
 }
 
+// ============================================
+// STYLES for the Profile screen
+// ============================================
 const styles = StyleSheet.create({
+  // Full screen
   screen: {
     flex: 1,
   },
+
+  // Content inside the scroll area
   content: {
     width: '100%',
-    maxWidth: MaxContentWidth,
-    alignSelf: 'center',
-    padding: Spacing.four,
-    gap: Spacing.four,
+    maxWidth: 640,           // don't get too wide on big screens
+    alignSelf: 'center',     // center the content
+    padding: 24,
   },
+
+  // Top profile section
   header: {
-    alignItems: 'center',
-    gap: Spacing.one,
-    paddingVertical: Spacing.three,
+    alignItems: 'center',    // center everything
+    gap: 4,
+    paddingVertical: 16,
   },
+
+  // Purple circle for the avatar
   avatar: {
     width: 96,
     height: 96,
-    borderRadius: Radius.pill,
+    borderRadius: 999,       // round circle
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: Spacing.two,
+    marginBottom: 8,
+  },
+
+  // Big letter inside the avatar
+  avatarText: {
+    fontSize: 36,
+    lineHeight: 44,
+    fontWeight: '700',
+  },
+
+  // Student name
+  name: {
+    fontSize: 22,
+    lineHeight: 30,
+    fontWeight: '700',
+  },
+
+  // "Student developer" text
+  role: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '500',
   },
 });
