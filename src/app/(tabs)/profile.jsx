@@ -11,13 +11,17 @@ export default function ProfileScreen() {
   return (
     <ThemedView style={styles.screen}>
       <ScrollView contentContainerStyle={styles.content}>
+        {/* Profile header section */}
         <ThemedView style={styles.header}>
+          {/* Circle avatar with first letter */}
           <ThemedView type="tint" style={styles.avatar}>
             <ThemedText type="title" style={{ color: theme.onTint }}>
               A
             </ThemedText>
           </ThemedView>
+
           <ThemedText type="subtitle">ayesha babar</ThemedText>
+
           <ThemedText type="small" themeColor="textSecondary">
             Student developer
           </ThemedText>

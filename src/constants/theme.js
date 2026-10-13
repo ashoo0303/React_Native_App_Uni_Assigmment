@@ -1,3 +1,4 @@
+// App colors for light and dark mode
 export const Colors = {
   light: {
     text: '#11181C',
@@ -21,10 +22,9 @@ export const Colors = {
     onTint: '#0E0F1A',
     border: '#2A2D45',
   },
-} as const;
+};
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
+// Spacing values used for padding and margins
 export const Spacing = {
   half: 2,
   one: 4,
@@ -33,13 +33,15 @@ export const Spacing = {
   four: 24,
   five: 32,
   six: 64,
-} as const;
+};
 
+// Border radius values
 export const Radius = {
   small: 8,
   medium: 16,
   large: 24,
   pill: 999,
-} as const;
+};
 
+// Max width for content on larger screens
 export const MaxContentWidth = 640;

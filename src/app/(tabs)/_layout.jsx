@@ -3,6 +3,7 @@ import { Tabs } from 'expo-router';
 
 import { useTheme } from '@/hooks/use-theme';
 
+// Tab layout - bottom navigation with Home and Profile
 export default function TabLayout() {
   const theme = useTheme();
 
@@ -20,21 +21,32 @@ export default function TabLayout() {
           borderTopColor: theme.border,
         },
       }}>
+      {/* Home tab */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color} />
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
+
+      {/* Profile tab */}
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />
+            <Ionicons
+              name={focused ? 'person' : 'person-outline'}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
